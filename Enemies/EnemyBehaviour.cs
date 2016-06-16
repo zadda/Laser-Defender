@@ -33,6 +33,17 @@ public class EnemyBehaviour : MonoBehaviour
         Vector3 startPosition = transform.position + new Vector3(0, -0.1f, 0);
         GameObject laser01 = Instantiate(EnemyProjectile01, startPosition, Quaternion.identity) as GameObject;
         laser01.GetComponent<Rigidbody2D>().velocity = new Vector3(0, -EnemyProjectile01Speed, 0);
+
+        //todo double lase
+        if (DoubleLaser.doubleFire) // double fire is TRUE
+        {
+            Vector3 startPosition2 = transform.position + new Vector3(-0.2f, -0.1f, 0);
+            laser01 = Instantiate(EnemyProjectile01, startPosition, Quaternion.identity) as GameObject;
+            GameObject laser02 = Instantiate(EnemyProjectile01, startPosition2, Quaternion.identity) as GameObject;
+            laser01.GetComponent<Rigidbody2D>().velocity = new Vector3(0, -EnemyProjectile01Speed, 0);
+            laser02.GetComponent<Rigidbody2D>().velocity = new Vector3(0, -EnemyProjectile01Speed, 0);
+        }
+
     }
 
     void OnTriggerEnter2D(Collider2D collidingWith)
