@@ -7,6 +7,8 @@ public class LevelManager : MonoBehaviour
 
 	public void LoadLevel(string nameLevel)
     {
+        DoubleLaser.doubleFire = false;
+        FormationController.numberOfRounds = 0;
         SceneManager.LoadScene(nameLevel);
     }
 
