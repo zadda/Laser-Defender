@@ -45,16 +45,11 @@ public class DoubleLaser : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D botstMet)
     {
-
-        doubleFire = true;
-
         PlayerController player = botstMet.gameObject.GetComponent<PlayerController>();
-
-        Vector3 shieldStartPosition = new Vector3(botstMet.transform.position.x, -3.72f, 0); //player.transform.position.x
-
        // controleer of het object waarmee we botsen de Player is
         if (player)
         {
+            doubleFire = true;
             Destroy(gameObject);
         }
     }
